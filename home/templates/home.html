@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New website</title>
+    <style>
+        .card {
+            padding: 1rem;
+            outline: 1px #989898 solid;
+        }
+        
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cat_list">
+
+        {% for category in categories %}
+        <button>
+            {{category}}
+        </button> {% endfor %}
+
+    </div>
+    <div class="wrapper">
+        {% for news in newslist %}
+        <div class="card">
+            <h1>{{news.title}}</h1>
+            <p>
+                {{news.text|truncatewords:30}}
+                <a href="#">read news</a>
+            </p>
+            <p>
+                <span>{{news.category}}</span>
+                <span>{{news.pub_date}}</span>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
